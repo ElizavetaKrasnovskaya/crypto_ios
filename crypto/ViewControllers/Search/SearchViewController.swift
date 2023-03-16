@@ -27,10 +27,10 @@ class SearchViewController: UIViewController, SearchProtocol {
             }
         }
     }
-
+    
     @IBOutlet private weak var coinTableView: UITableView!
-    @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var searchField: UITextField!
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +39,11 @@ class SearchViewController: UIViewController, SearchProtocol {
         setupTableView()
     }
     
-    override func viewWillLayoutSubviews() {
-        if searchField.text?.isEmpty == true {
-            viewModel.filterCoins(by: "")
-        }
-    }
+//    override func viewWillLayoutSubviews() {
+//        if searchField.text?.isEmpty == true {
+//            viewModel.filterCoins(by: "")
+//        }
+//    }
     
     private func initView() {
         showLoading()
@@ -98,6 +98,7 @@ class SearchViewController: UIViewController, SearchProtocol {
     }
     
     @IBAction func onBackBtnClick(_ sender: Any) {
+        viewModel.filterCoins(by: "")
         navigationController?.popViewController(animated: true)
     }
 }
@@ -113,6 +114,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         cell.setup(with: coins[index], searchProtocol: self)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DetailsViewModel.shared.coin = coins[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

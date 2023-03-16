@@ -21,19 +21,17 @@ class SearchViewModel {
     }
     
     private func getCoins() {
-        if coins.isEmpty {
-            isLoading = true
-            while page < 10 {
-                repository.getCoinsList(completion: { coins in
-                    self.coins.append(contentsOf: coins)
-                    self.filterCoins(by: "")
-                    self.filteredCoins.append(contentsOf: coins)
-                }, page: page)
-                self.page += 1
-            }
-            isLoading = false
-            page = 0
+        isLoading = true
+        while page < 10 {
+            repository.getCoinsList(completion: { coins in
+                self.coins.append(contentsOf: coins)
+                self.filterCoins(by: "")
+                self.filteredCoins.append(contentsOf: coins)
+            }, page: page)
+            self.page += 1
         }
+        isLoading = false
+        page = 0
     }
     
     func filterCoins(by filter: String) {
@@ -48,19 +46,27 @@ class SearchViewModel {
     }
     
     func addToFavourite(coin: CoinEntity) {
+        MarketViewModel.shared.coins?.append(coin)
         repository.addToFavourite(coin: coin)
-        coins.enumerated().forEach { index, coin in
-            if coin.id == coin.id {
+        coins.enumerated().forEach {index, searchCoin in
+            if searchCoin.id == coin.id {
                 coins[index].isFavourite = true
+                return
             }
         }
     }
     
     func removeFromFavourite(id: String) {
-        repository.removeFromFavourite(id: id)
-        coins.enumerated().forEach { index, coin in
+        MarketViewModel.shared.coins?.enumerated().forEach { index, coin in
             if coin.id == id {
+                MarketViewModel.shared.coins?.remove(at: index)
+            }
+        }
+        repository.removeFromFavourite(id: id)
+        coins.enumerated().forEach {index, searchCoin in
+            if searchCoin.id == id {
                 coins[index].isFavourite = false
+                return
             }
         }
     }

@@ -29,6 +29,14 @@ class DatabaseService {
         coin.setValue(insert.price, forKey: "price")
         coin.setValue(insert.changePercentageDay, forKey: "changePercentageDay")
         coin.setValue(insert.change24Hours, forKey: "change24Hours")
+        coin.setValue(insert.highDay, forKey: "highDay")
+        coin.setValue(insert.lowDay, forKey: "lowDay")
+        coin.setValue(insert.openDay, forKey: "openDay")
+        coin.setValue(insert.volumeDay, forKey: "volumeDay")
+        coin.setValue(insert.marketCap, forKey: "marketCap")
+        coin.setValue(insert.supply, forKey: "supply")
+        coin.setValue(insert.algorithm, forKey: "algorithm")
+        coin.setValue(insert.proofType, forKeyPath: "proofType")
         coin.setValue(insert.isFavourite, forKey: "isFavourite")
         
         do {
@@ -54,6 +62,14 @@ class DatabaseService {
                     price: coin.value(forKey: "price") as? String ?? "",
                     changePercentageDay: coin.value(forKey: "changePercentageDay") as? String ?? "",
                     change24Hours: coin.value(forKey: "change24Hours") as? String ?? "",
+                    highDay: coin.value(forKey: "highDay") as? String ?? "",
+                    lowDay: coin.value(forKey: "lowDay") as? String ?? "",
+                    openDay: coin.value(forKey: "openDay") as? String ?? "",
+                    volumeDay: coin.value(forKey: "volumeDay") as? String ?? "",
+                    marketCap: coin.value(forKey: "marketCap") as? String ?? "",
+                    supply: coin.value(forKey: "supply") as? String ?? "",
+                    proofType: coin.value(forKey: "proofType") as? String ?? "",
+                    algorithm: coin.value(forKey: "algorithm") as? String ?? "",
                     isFavourite: coin.value(forKey: "isFavourite") as? Bool ?? true
                 ))
             }

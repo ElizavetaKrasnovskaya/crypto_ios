@@ -34,10 +34,6 @@ class MarketViewController: UIViewController {
         setupTableView()
     }
     
-    override func viewWillLayoutSubviews() {
-        viewModel.getCoinsFromDatabase()
-    }
-    
     private func initView() {
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.barTintColor = UIColor(hexString: "#212B40")
@@ -90,5 +86,12 @@ extension MarketViewController: UITableViewDelegate, UITableViewDataSource {
         else { return UITableViewCell() }
         cell.setup(with: coins?[index])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DetailsViewModel.shared.coin = coins?[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

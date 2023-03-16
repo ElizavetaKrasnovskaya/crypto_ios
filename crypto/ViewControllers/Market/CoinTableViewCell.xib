@@ -54,7 +54,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" red="0.14509803921568626" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="T2U-im-hEY" firstAttribute="leading" secondItem="xu1-ss-qh3" secondAttribute="trailing" constant="12" id="1fp-mN-t0Q"/>
                     <constraint firstItem="xu1-ss-qh3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2iM-De-B5V"/>
@@ -73,7 +73,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.14509803921568626" green="0.18823529411764706" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="coinImage" destination="xu1-ss-qh3" id="New-Sl-6Dp"/>
                 <outlet property="currency" destination="alG-qk-Rdw" id="tcg-3R-qcw"/>

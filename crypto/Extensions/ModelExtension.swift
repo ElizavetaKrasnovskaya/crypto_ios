@@ -32,6 +32,8 @@ extension CoinInfo {
         case name = "Name"
         case fullName = "FullName"
         case imageUrl = "ImageUrl"
+        case proofType = "ProofType"
+        case algorithm = "Algorithm"
     }
 }
 
@@ -45,6 +47,12 @@ extension Usd {
         case price = "PRICE"
         case changePercentageDay = "CHANGEPCTDAY"
         case change24Hours = "CHANGE24HOUR"
+        case highDay = "HIGHDAY"
+        case lowDay = "LOWDAY"
+        case openDay = "OPENDAY"
+        case volumeDay = "VOLUMEDAY"
+        case marketCap = "MKTCAP"
+        case supply = "SUPPLY"
     }
 }
 

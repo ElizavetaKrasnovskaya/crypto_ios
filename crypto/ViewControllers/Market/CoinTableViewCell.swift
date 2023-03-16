@@ -23,10 +23,6 @@ class CoinTableViewCell: UITableViewCell {
     static func nib() -> UINib {
         UINib(nibName: identifier, bundle: nil)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func setup(with coin: CoinEntity?) {
         name.text = coin?.fullName

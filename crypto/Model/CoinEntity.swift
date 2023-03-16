@@ -15,6 +15,14 @@ struct CoinEntity {
     let price: String
     let changePercentageDay: String
     let change24Hours: String
+    let highDay: String
+    let lowDay: String
+    let openDay: String
+    let volumeDay: String
+    let marketCap: String
+    let supply: String
+    let proofType: String
+    let algorithm: String
     var isFavourite: Bool
 }
 

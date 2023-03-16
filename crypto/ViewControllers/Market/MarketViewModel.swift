@@ -21,6 +21,7 @@ final class MarketViewModel {
     
     private init () {
         getNews()
+        getCoinsFromDatabase()
     }
     
     private func getNews() {
@@ -47,9 +48,7 @@ final class MarketViewModel {
     
     func getCoinsFromDatabase() {
         repository.getTopCoin() { coin in
-            if self.coins != coin {
-                self.coins = coin
-            }
+            self.coins = coin
         }
     }
     

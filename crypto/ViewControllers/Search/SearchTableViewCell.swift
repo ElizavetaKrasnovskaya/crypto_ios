@@ -29,10 +29,6 @@ class SearchTableViewCell: UITableViewCell {
         UINib(nibName: identifier, bundle: nil)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func setup(with coin: CoinEntity?, searchProtocol: SearchProtocol) {
         self.searchProtocol = searchProtocol
         self.coin = coin
