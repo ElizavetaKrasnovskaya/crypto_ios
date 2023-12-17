@@ -39,13 +39,8 @@ class SearchViewController: UIViewController, SearchProtocol {
         setupTableView()
     }
     
-//    override func viewWillLayoutSubviews() {
-//        if searchField.text?.isEmpty == true {
-//            viewModel.filterCoins(by: "")
-//        }
-//    }
-    
     private func initView() {
+        viewModel.getCoins()
         showLoading()
         coinTableView.layer.cornerRadius = 8
         searchField.delegate = self

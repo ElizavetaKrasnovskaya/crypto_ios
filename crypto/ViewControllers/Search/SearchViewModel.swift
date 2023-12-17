@@ -16,11 +16,9 @@ class SearchViewModel {
     private var page = 0
     private let repository = CryptoRepository.shared
     
-    private init() {
-        getCoins()
-    }
-    
-    private func getCoins() {
+    func getCoins() {
+        filteredCoins.removeAll()
+        coins.removeAll()
         isLoading = true
         while page < 10 {
             repository.getCoinsList(completion: { coins in
